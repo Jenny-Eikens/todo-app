@@ -7,40 +7,54 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
-      colors: {},
-    },
-  },
-  daisyui: {
-    themes: [
-      {
-        lighttheme: {
-          primary: "#fff",
-        },
-        darktheme: {
-          primary: "#aaa",
+      colors: {
+        primary: {
+          light: "hsl(235, 19%, 35%)",
+          dark: "#fff",
         },
       },
-    ],
+      backgroundImage: {
+        "light-mobile": "url('/images/bg-mobile-light.jpg')",
+        "dark-mobile": "url('/images/bg-mobile-dark.jpg')",
+        "light-desktop": "url('/images/bg-desktop-light.jpg')",
+        "dark-desktop": "url('/images/bg-desktop-dark.jpg')",
+        "gradient-with-check":
+          "url('/images/icon-check.svg'), linear-gradient(to bottom right, #567de6, #823cd0) ",
+      },
+    },
   },
+  // daisyui: {
+  //   themes: [
+  //     {
+  //       lighttheme: {
+  //         primary: "#fff",
+  //       },
+  //       darktheme: {
+  //         primary: "#aaa",
+  //       },
+  //     },
+  //   ],
+  // },
   plugins: [daisyui],
 } satisfies Config;
 
 /*
 light theme:
-- Very Light Gray: hsl(0, 0%, 98%)
+- Very Light Gray: hsl(0, 0%, 98%) -> for page background
 - Very Light Grayish Blue: hsl(236, 33%, 92%)
 - Light Grayish Blue: hsl(233, 11%, 84%)
 - Dark Grayish Blue: hsl(236, 9%, 61%)
 - Very Dark Grayish Blue: hsl(235, 19%, 35%)
 
 dark theme:
-- Very Dark Blue: hsl(235, 21%, 11%)
-- Very Dark Desaturated Blue: hsl(235, 24%, 19%)
+- Very Dark Blue: hsl(235, 21%, 11%) -> for page background
+- Very Dark Desaturated Blue: hsl(235, 24%, 19%) -> for todo list
 - Light Grayish Blue: hsl(234, 39%, 85%)
 - Light Grayish Blue (hover): hsl(236, 33%, 92%)
 - Dark Grayish Blue: hsl(234, 11%, 52%)
-- Very Dark Grayish Blue: hsl(233, 14%, 35%)
+- Very Dark Grayish Blue: hsl(233, 14%, 35%) -> for checkbox border
 - Very Dark Grayish Blue: hsl(237, 14%, 26%)
 */
