@@ -12,7 +12,7 @@ const InputField = () => {
         name="new-todo"
         id="new-todo"
         placeholder="Create a new todo..."
-        className="h-8 w-full resize-none border-none bg-transparent focus:outline-none"
+        className="h-8 w-full resize-none border-none bg-transparent text-sm focus:outline-none md:text-base"
       ></textarea>
     </form>
   );

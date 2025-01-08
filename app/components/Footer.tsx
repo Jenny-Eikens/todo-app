@@ -1,13 +1,28 @@
 import React from "react";
+import Filter from "./Filter";
 
-const Footer = () => {
+interface FooterProps {
+  count: number;
+  onShowAll: () => void;
+  onShowActive: () => void;
+  onShowCompleted: () => void;
+}
+
+const Footer = ({
+  count,
+  onShowAll,
+  onShowActive,
+  onShowCompleted,
+}: FooterProps) => {
   return (
     <div className="mx-3 flex justify-between p-2 text-sm font-[500] text-[hsl(236,9%,61%)] dark:text-[hsl(234,11%,52%)]">
-      <span>5 items left</span>
-      <div className="hidden space-x-2 md:inline">
-        <button>All</button>
-        <button>Active</button>
-        <button>Completed</button>
+      <span>{count} items left</span>
+      <div className="hidden space-x-4 md:inline">
+        <Filter
+          onShowAll={onShowAll}
+          onShowActive={onShowActive}
+          onShowCompleted={onShowCompleted}
+        />
       </div>
       <button>Clear Completed</button>
     </div>

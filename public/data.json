@@ -3,7 +3,7 @@
     {
       "id": 1,
       "content": "Complete online JavaScript course",
-      "completed": true
+      "completed": false
     },
     {
       "id": 2,

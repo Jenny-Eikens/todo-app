@@ -33,20 +33,20 @@ async function fetchTodos() {
       throw new Error("Invalid data format");
     }
     return {
-      todos: data.todos,
+      initialTodos: data.todos,
     };
   } catch (error) {
     console.error("Failed to fetch data: ", error);
     return {
-      todos: [],
+      initialTodos: [],
     };
   }
 }
 
 const Home = async () => {
-  const { todos } = await fetchTodos();
-  if (!todos) {
-    console.error("Missing required data: ", { todos });
+  const { initialTodos } = await fetchTodos();
+  if (!initialTodos) {
+    console.error("Missing required data: ", { initialTodos });
     return <div>Error loading data</div>;
   }
   return (
@@ -61,7 +61,7 @@ const Home = async () => {
         />
       </Head>
       <main className="m-auto w-[90vw] max-w-[600px] py-8">
-        <TodoList todos={todos} />
+        <TodoList initialTodos={initialTodos} />
       </main>
     </>
   );
