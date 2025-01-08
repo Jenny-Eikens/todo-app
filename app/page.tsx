@@ -60,7 +60,7 @@ const Home = async () => {
           content={`width=${viewport.width} initial-scale=${viewport.initialScale}`}
         />
       </Head>
-      <main className="m-auto w-[85vw] max-w-[600px]">
+      <main className="m-auto w-[90vw] max-w-[600px] py-8">
         <TodoList todos={todos} />
       </main>
     </>

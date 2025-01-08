@@ -20,7 +20,7 @@ function ThemeToggle() {
 
   return (
     <button
-      className="p-2"
+      className="scale-[0.85] p-2 md:scale-100"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
       {theme === "light" ? iconMoon : iconSun}

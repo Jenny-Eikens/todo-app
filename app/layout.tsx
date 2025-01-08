@@ -8,7 +8,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-light-mobile dark:bg-dark-mobile md:bg-light-desktop md:dark:bg-dark-desktop bg-[hsl(0,0%,98%)] dark:bg-[hsl(235,21%,11%)] bg-contain bg-no-repeat flex justify-center align-center">
+      <body className="align-center flex h-[100%] justify-center bg-[hsl(0,0%,98%)] bg-light-mobile bg-contain bg-no-repeat dark:bg-[hsl(235,21%,11%)] dark:bg-dark-mobile md:bg-light-desktop md:py-6 md:dark:bg-dark-desktop">
         <ThemeProvider attribute="class" defaultTheme="system">
           {children}
         </ThemeProvider>

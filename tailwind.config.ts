@@ -43,18 +43,18 @@ export default {
 
 /*
 light theme:
-- Very Light Gray: hsl(0, 0%, 98%) -> for page background
-- Very Light Grayish Blue: hsl(236, 33%, 92%)
-- Light Grayish Blue: hsl(233, 11%, 84%)
-- Dark Grayish Blue: hsl(236, 9%, 61%)
-- Very Dark Grayish Blue: hsl(235, 19%, 35%)
+- Very Light Gray: hsl(0,0%,98%) -> for page background
+- Very Light Grayish Blue: hsl(236,33%,92%)
+- Light Grayish Blue: hsl(233,11%,84%) -> for completed todos and hr
+- Dark Grayish Blue: hsl(236,9%,61%) -> for footer
+- Very Dark Grayish Blue: hsl(235,19%,35%)
 
 dark theme:
-- Very Dark Blue: hsl(235, 21%, 11%) -> for page background
-- Very Dark Desaturated Blue: hsl(235, 24%, 19%) -> for todo list
-- Light Grayish Blue: hsl(234, 39%, 85%)
-- Light Grayish Blue (hover): hsl(236, 33%, 92%)
-- Dark Grayish Blue: hsl(234, 11%, 52%)
-- Very Dark Grayish Blue: hsl(233, 14%, 35%) -> for checkbox border
-- Very Dark Grayish Blue: hsl(237, 14%, 26%)
+- Very Dark Blue: hsl(235,21%,11%) -> for page background
+- Very Dark Desaturated Blue: hsl(235,24%,19%) -> for todo list
+- Light Grayish Blue: hsl(234,39%,85%)
+- Light Grayish Blue (hover): hsl(236,33%,92%)
+- Dark Grayish Blue: hsl(234,11%,52%) -> for footer and completed todos
+- Very Dark Grayish Blue: hsl(233,14%,35%) -> for checkbox border and hr
+- Very Dark Grayish Blue: hsl(237,14%,26%)
 */

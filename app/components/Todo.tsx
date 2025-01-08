@@ -17,15 +17,19 @@ const iconCross = (
   />
 );
 
-const Todo = ({ id, content }: Todo) => {
+const Todo = ({ id, content, completed }: Todo) => {
   return (
     <>
       <label key={id} className="flex items-center p-4">
         <Checkbox />
-        {content}
-        <button className="ml-auto p-2">{iconCross}</button>
+        <span
+          className={`${completed && "text-[hsl(233,11%,84%)] line-through dark:text-[hsl(234,11%,52%)]"} text-sm md:text-base`}
+        >
+          {content}
+        </span>
+        <button className="ml-auto scale-75 p-2">{iconCross}</button>
       </label>
-      <hr className="m-0 h-[0.075rem] border-none bg-[hsl(233,11%,84%)] dark:bg-[hsl(234,11%,52%)]" />
+      <hr className="m-0 h-[0.075rem] border-none bg-[hsl(233,11%,84%)] dark:bg-[hsl(233,14%,35%)]" />
     </>
   );
 };
