@@ -6,6 +6,7 @@ interface FooterProps {
   onShowAll: () => void;
   onShowActive: () => void;
   onShowCompleted: () => void;
+  onClearCompleted: () => void;
 }
 
 const Footer = ({
@@ -13,6 +14,7 @@ const Footer = ({
   onShowAll,
   onShowActive,
   onShowCompleted,
+  onClearCompleted,
 }: FooterProps) => {
   return (
     <div className="mx-3 flex justify-between p-2 text-sm font-[500] text-[hsl(236,9%,61%)] dark:text-[hsl(234,11%,52%)]">
@@ -24,7 +26,7 @@ const Footer = ({
           onShowCompleted={onShowCompleted}
         />
       </div>
-      <button>Clear Completed</button>
+      <button onClick={onClearCompleted}>Clear Completed</button>
     </div>
   );
 };

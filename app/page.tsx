@@ -8,7 +8,9 @@ import TodoList from "./components/TodoList";
 - figure out what's wrong with hr height
 - how can I use Checkbox in InputField and disable it only there?
 - figure out how to make checkmark bigger
-- save state in localStorage
+- implement functionality for adding todos
+- implement drag-and-drop -> dnd kit
+- fix styles
 */
 
 export const metadata = {
@@ -60,7 +62,7 @@ const Home = async () => {
           content={`width=${viewport.width} initial-scale=${viewport.initialScale}`}
         />
       </Head>
-      <main className="m-auto w-[90vw] max-w-[600px] py-8">
+      <main className="m-auto min-h-full w-[90vw] max-w-[600px] py-8">
         <TodoList initialTodos={initialTodos} />
       </main>
     </>

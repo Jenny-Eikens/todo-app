@@ -63,6 +63,11 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
     setFilter("completed");
   };
 
+  const handleClearCompleted = () => {
+    const clearedTodos = todos.filter((todo) => !todo.completed);
+    setTodos(clearedTodos);
+  };
+
   const filteredTodos = todos.filter((todo) => {
     if (filter === "active") return !todo.completed;
     if (filter === "completed") return todo.completed;
@@ -90,6 +95,7 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
             onShowAll={handleShowAll}
             onShowActive={handleShowActive}
             onShowCompleted={handleShowCompleted}
+            onClearCompleted={handleClearCompleted}
           />
         </div>
         <MobileFooter
@@ -99,7 +105,7 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
         />
       </div>
 
-      <div className="my-[3rem] flex justify-center text-sm font-[500] text-[hsl(236,9%,61%)] dark:text-[hsl(234,11%,52%)]">
+      <div className="flex justify-center py-[3rem] text-sm font-[500] text-[hsl(236,9%,61%)] dark:text-[hsl(234,11%,52%)]">
         Drag and drop to reorder list
       </div>
     </>
