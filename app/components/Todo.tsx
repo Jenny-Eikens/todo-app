@@ -6,8 +6,11 @@ export interface TodoProps {
   id: number;
   content: string;
   completed: boolean;
-  onToggle: (id: number) => void;
-  onDelete: (id: number) => void;
+}
+
+interface TodoComponentProps extends TodoProps {
+  onToggle: () => void;
+  onDelete: () => void;
 }
 
 const iconCross = (
@@ -19,17 +22,23 @@ const iconCross = (
   />
 );
 
-const Todo = ({ id, content, completed, onToggle, onDelete }: TodoProps) => {
+const Todo = ({
+  id,
+  content,
+  completed,
+  onToggle,
+  onDelete,
+}: TodoComponentProps) => {
   return (
     <>
       <label key={id} className="flex items-center p-4">
-        <Checkbox completed={completed} onChange={() => onToggle(id)} />
+        <Checkbox completed={completed} onChange={onToggle} />
         <span
           className={`${completed && "text-[hsl(233,11%,84%)] line-through dark:text-[hsl(234,11%,52%)]"} text-sm md:text-base`}
         >
           {content}
         </span>
-        <button className="ml-auto scale-75 p-2" onClick={() => onDelete(id)}>
+        <button className="ml-auto scale-75 p-2" onClick={onDelete}>
           {iconCross}
         </button>
       </label>

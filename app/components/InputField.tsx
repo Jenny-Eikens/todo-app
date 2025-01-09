@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
-const InputField = () => {
+interface InputFieldProps {
+  onAddTodo: (text: string) => void;
+}
+
+const InputField = ({ onAddTodo }: InputFieldProps) => {
+  const [newTodo, setNewTodo] = useState("");
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      if (newTodo.trim() === "") alert("Todo can't be empty!");
+      onAddTodo(newTodo);
+      setNewTodo("");
+    }
+  };
+
   return (
     <form className="flex items-stretch rounded-lg bg-white p-4 py-4 text-[hsl(235,19%,35%)] dark:bg-[hsl(235,24%,19%)] dark:text-[hsl(234,39%,85%)]">
       <input
@@ -12,7 +27,10 @@ const InputField = () => {
         name="new-todo"
         id="new-todo"
         placeholder="Create a new todo..."
+        value={newTodo}
         className="h-8 w-full resize-none border-none bg-transparent text-sm focus:outline-none md:text-base"
+        onChange={(e) => setNewTodo(e.target.value)}
+        onKeyDown={handleKeyDown}
       ></textarea>
     </form>
   );

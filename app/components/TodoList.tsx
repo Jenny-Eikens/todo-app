@@ -31,6 +31,10 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
     localStorage.setItem("Todos", todoList);
   }, [todos]);
 
+  const generateId = () => {
+    return Math.random() + Date.now();
+  };
+
   const handleToggle = (id: number) => {
     setTodos(
       todos.map((todo) => {
@@ -68,6 +72,20 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
     setTodos(clearedTodos);
   };
 
+  const addTodo = (text: string) => {
+    const addedTodo: TodoProps = {
+      id: generateId(),
+      content: text,
+      completed: false,
+    };
+
+    setTodos([...todos, addedTodo]);
+  };
+
+  const handleAddTodo = (text: string) => {
+    addTodo(text);
+  };
+
   const filteredTodos = todos.filter((todo) => {
     if (filter === "active") return !todo.completed;
     if (filter === "completed") return todo.completed;
@@ -78,7 +96,7 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
     <>
       <Header />
       <div className="mt-6 space-y-4 md:mt-10">
-        <InputField />
+        <InputField onAddTodo={handleAddTodo} />
         <div className="space-y-2 rounded-lg bg-white py-2 text-[hsl(235,19%,35%)] shadow-md dark:bg-[hsl(235,24%,19%)] dark:text-[hsl(234,39%,85%)]">
           {filteredTodos.map((todo) => (
             <Todo
@@ -86,8 +104,8 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
               key={todo.id}
               content={todo.content}
               completed={todo.completed}
-              onToggle={handleToggle}
-              onDelete={handleDelete}
+              onToggle={() => handleToggle(todo.id)}
+              onDelete={() => handleDelete(todo.id)}
             />
           ))}
           <Footer
