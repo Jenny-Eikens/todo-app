@@ -52,6 +52,7 @@ const Todo = ({
         <span
           className={`${completed && "text-[hsl(233,11%,84%)] line-through dark:text-[hsl(234,11%,52%)]"} h-full w-[80%] py-4 text-sm md:w-[95%] md:text-base`}
           {...listeners}
+          tabIndex={0}
         >
           {content}
         </span>
