@@ -8,9 +8,9 @@ import TodoList from "./components/TodoList";
 - figure out what's wrong with hr height
 - how can I use Checkbox in InputField and disable it only there?
 - figure out how to make checkmark bigger
-- implement functionality for adding todos
-- implement drag-and-drop -> dnd kit
+- why does checkbox get squashed when todo is too wide?
 - fix styles
+- fix colors
 */
 
 export const metadata = {

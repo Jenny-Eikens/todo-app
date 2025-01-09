@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface FilterProps {
   onShowAll: () => void;
@@ -7,11 +7,39 @@ interface FilterProps {
 }
 
 const Filter = ({ onShowAll, onShowActive, onShowCompleted }: FilterProps) => {
+  const [selectedFilter, setSelectedFilter] = useState<
+    "all" | "active" | "completed"
+  >("all");
+
   return (
     <>
-      <button onClick={onShowAll}>All</button>
-      <button onClick={onShowActive}>Active</button>
-      <button onClick={onShowCompleted}>Completed</button>
+      <button
+        onClick={() => {
+          setSelectedFilter("all");
+          onShowAll();
+        }}
+        className={`${selectedFilter === "all" && "text-[hsl(219,97%,71%)] dark:text-[hsl(220,57%,50%)]"}`}
+      >
+        All
+      </button>
+      <button
+        onClick={() => {
+          setSelectedFilter("active");
+          onShowActive();
+        }}
+        className={`${selectedFilter === "active" && "text-[hsl(219,97%,71%)] dark:text-[hsl(220,57%,50%)]"}`}
+      >
+        Active
+      </button>
+      <button
+        onClick={() => {
+          setSelectedFilter("completed");
+          onShowCompleted();
+        }}
+        className={`${selectedFilter === "completed" && "text-[hsl(219,97%,71%)] dark:text-[hsl(220,57%,50%)]"}`}
+      >
+        Completed
+      </button>
     </>
   );
 };

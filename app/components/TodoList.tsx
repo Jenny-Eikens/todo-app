@@ -7,6 +7,12 @@ import InputField from "./InputField";
 import Footer from "./Footer";
 import MobileFooter from "./MobileFooter";
 import { TodoProps } from "./Todo";
+import { DndContext, closestCenter, DragEndEvent } from "@dnd-kit/core";
+import {
+  arrayMove,
+  SortableContext,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
 
 const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
   const [count, setCount] = useState(0);
@@ -36,8 +42,8 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
   };
 
   const handleToggle = (id: number) => {
-    setTodos(
-      todos.map((todo) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) => {
         if (todo.id === id) {
           return { ...todo, completed: !todo.completed };
         }
@@ -47,7 +53,7 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
   };
 
   const handleDelete = (id: number) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
   };
 
   useEffect(() => {
@@ -86,11 +92,26 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
     addTodo(text);
   };
 
+  const handleDragEnd = (e: DragEndEvent) => {
+    const { active, over } = e;
+    console.log("Drag event!");
+    if (active.id !== over?.id) {
+      setTodos((items) => {
+        const activeIndex = items.findIndex((item) => item.id === active.id);
+        const overIndex = items.findIndex((item) => item.id === over?.id);
+
+        return arrayMove(items, activeIndex, overIndex);
+      });
+    }
+  };
+
   const filteredTodos = todos.filter((todo) => {
     if (filter === "active") return !todo.completed;
     if (filter === "completed") return todo.completed;
     return true;
   });
+
+  localStorage.clear();
 
   return (
     <>
@@ -98,16 +119,26 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
       <div className="mt-6 space-y-4 md:mt-10">
         <InputField onAddTodo={handleAddTodo} />
         <div className="space-y-2 rounded-lg bg-white py-2 text-[hsl(235,19%,35%)] shadow-md dark:bg-[hsl(235,24%,19%)] dark:text-[hsl(234,39%,85%)]">
-          {filteredTodos.map((todo) => (
-            <Todo
-              id={todo.id}
-              key={todo.id}
-              content={todo.content}
-              completed={todo.completed}
-              onToggle={() => handleToggle(todo.id)}
-              onDelete={() => handleDelete(todo.id)}
-            />
-          ))}
+          <DndContext
+            collisionDetection={closestCenter}
+            onDragEnd={handleDragEnd}
+          >
+            <SortableContext
+              items={filteredTodos}
+              strategy={verticalListSortingStrategy}
+            >
+              {filteredTodos.map((todo) => (
+                <Todo
+                  id={todo.id}
+                  key={todo.id}
+                  content={todo.content}
+                  completed={todo.completed}
+                  onToggle={() => handleToggle(todo.id)}
+                  onDelete={() => handleDelete(todo.id)}
+                />
+              ))}
+            </SortableContext>
+          </DndContext>
           <Footer
             count={count}
             onShowAll={handleShowAll}
