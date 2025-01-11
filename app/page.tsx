@@ -10,6 +10,7 @@ import TodoList from "./components/TodoList";
 - why does checkbox get squashed when todo is too wide?
 - fix styles
 - figure out how to restrict hover effect to checkbox
+- figure out how to override css rules for hovering on completed checkbox -> why does checkmark slide into view??
 
 ISSUES:
 - why does page initially show sun icon despite mode being light??
