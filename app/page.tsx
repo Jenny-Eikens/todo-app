@@ -10,6 +10,9 @@ import TodoList from "./components/TodoList";
 - why does checkbox get squashed when todo is too wide?
 - fix styles
 - figure out how to restrict hover effect to checkbox
+
+ISSUES:
+- why does page initially show sun icon despite mode being light??
 */
 
 export const metadata = {

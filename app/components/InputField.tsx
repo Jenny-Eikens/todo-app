@@ -28,7 +28,7 @@ const InputField = ({ onAddTodo }: InputFieldProps) => {
         id="new-todo"
         placeholder="Create a new todo..."
         value={newTodo}
-        className="h-[18px] w-full resize-none overflow-hidden border-none bg-transparent text-sm hover:cursor-pointer focus:cursor-text focus:outline-none md:text-base"
+        className="h-[18px] w-full resize-none overflow-hidden border-none bg-transparent text-sm caret-[hsl(220,80%,60%)] hover:cursor-pointer focus:cursor-text focus:outline-none md:text-base"
         onChange={(e) => setNewTodo(e.target.value)}
         onKeyDown={handleKeyDown}
       ></textarea>
