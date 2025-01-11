@@ -20,3 +20,23 @@ body {
   font-family: "Josefin Sans";
   font-size: 18px;
 }
+
+.filtering {
+  @apply transition-colors hover:text-[hsl(235,19%,35%)] dark:hover:text-[hsl(234,39%,85%)];
+}
+
+.todo-checkbox:hover {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(white, white) padding-box,
+    linear-gradient(to bottom right, #567de6, #823cd0) border-box;
+  transition: all 150ms;
+}
+
+.dark .todo-checkbox:hover {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(hsl(235, 24%, 19%), hsl(235, 24%, 19%)) padding-box,
+    linear-gradient(to bottom right, #567de6, #823cd0) border-box;
+  transition: all 150ms;
+}

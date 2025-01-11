@@ -18,7 +18,7 @@ const Filter = ({ onShowAll, onShowActive, onShowCompleted }: FilterProps) => {
           setSelectedFilter("all");
           onShowAll();
         }}
-        className={`${selectedFilter === "all" && "text-[hsl(219,97%,71%)] dark:text-[hsl(220,57%,50%)]"}`}
+        className={`${selectedFilter === "all" && "text-[hsl(220,80%,60%)]"} ${selectedFilter !== "all" && "filtering"}`}
       >
         All
       </button>
@@ -27,7 +27,7 @@ const Filter = ({ onShowAll, onShowActive, onShowCompleted }: FilterProps) => {
           setSelectedFilter("active");
           onShowActive();
         }}
-        className={`${selectedFilter === "active" && "text-[hsl(219,97%,71%)] dark:text-[hsl(220,57%,50%)]"}`}
+        className={`${selectedFilter === "active" && "text-[hsl(220,57%,50%)]"} ${selectedFilter !== "active" && "filtering"}`}
       >
         Active
       </button>
@@ -36,7 +36,7 @@ const Filter = ({ onShowAll, onShowActive, onShowCompleted }: FilterProps) => {
           setSelectedFilter("completed");
           onShowCompleted();
         }}
-        className={`${selectedFilter === "completed" && "text-[hsl(219,97%,71%)] dark:text-[hsl(220,57%,50%)]"}`}
+        className={`${selectedFilter === "completed" && "text-[hsl(220,57%,50%)]"} ${selectedFilter !== "completed" && "filtering"}`}
       >
         Completed
       </button>

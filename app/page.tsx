@@ -5,12 +5,11 @@ import Head from "next/head";
 import TodoList from "./components/TodoList";
 
 /* TODO
-- figure out what's wrong with hr height
 - how can I use Checkbox in InputField and disable it only there?
 - figure out how to make checkmark bigger
 - why does checkbox get squashed when todo is too wide?
 - fix styles
-- fix colors
+- figure out how to restrict hover effect to checkbox
 */
 
 export const metadata = {

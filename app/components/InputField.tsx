@@ -20,7 +20,7 @@ const InputField = ({ onAddTodo }: InputFieldProps) => {
     <form className="flex items-center rounded-lg bg-white p-4 text-[hsl(235,19%,35%)] dark:bg-[hsl(235,24%,19%)] dark:text-[hsl(234,39%,85%)]">
       <input
         type="checkbox"
-        className="mr-3 h-6 w-6 appearance-none rounded-full border border-[hsl(234,39%,85%)] dark:border-[hsl(233,14%,35%)] md:h-8 md:w-8"
+        className="mr-3 h-6 w-6 appearance-none rounded-full border border-[hsl(236,33%,92%)] dark:border-[hsl(233,14%,35%)] md:h-7 md:w-7"
         disabled
       />
       <textarea

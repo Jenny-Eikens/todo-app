@@ -17,7 +17,7 @@ const Footer = ({
   onClearCompleted,
 }: FooterProps) => {
   return (
-    <div className="mx-3 flex justify-between p-2 text-sm font-[500] text-[hsl(236,9%,61%)] dark:text-[hsl(234,11%,52%)]">
+    <div className="mx-3 flex justify-between p-2 text-sm font-[700] text-[hsl(236,9%,61%)] dark:text-[hsl(234,11%,52%)]">
       <span>{count} items left</span>
       <div className="hidden space-x-4 md:inline">
         <Filter
@@ -26,7 +26,9 @@ const Footer = ({
           onShowCompleted={onShowCompleted}
         />
       </div>
-      <button onClick={onClearCompleted}>Clear Completed</button>
+      <button className="filtering" onClick={onClearCompleted}>
+        Clear Completed
+      </button>
     </div>
   );
 };

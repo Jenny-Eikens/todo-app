@@ -43,24 +43,27 @@ const Todo = ({
     <>
       <label
         key={id}
-        className="flex items-center px-4"
+        className="group flex items-center px-4"
         ref={setNodeRef}
         style={style}
         {...attributes}
       >
         <Checkbox completed={completed} onChange={onToggle} />
         <span
-          className={`${completed && "text-[hsl(233,11%,84%)] line-through dark:text-[hsl(234,11%,52%)]"} h-full w-[80%] py-4 text-sm md:w-[95%] md:text-base`}
+          className={`${completed && "text-[hsl(233,11%,84%)] line-through dark:text-[hsl(234,11%,52%)]"} h-full w-[80%] py-4 text-sm md:w-[90%] md:text-base`}
           {...listeners}
           tabIndex={0}
         >
           {content}
         </span>
-        <button className="ml-auto scale-75 p-2" onClick={onDelete}>
+        <button
+          className="ml-auto scale-75 p-2 transition-all duration-150 md:opacity-0 md:group-hover:opacity-100"
+          onClick={onDelete}
+        >
           {iconCross}
         </button>
       </label>
-      <hr className="m-0 h-[0.075rem] border-none bg-[hsl(233,11%,84%)] dark:bg-[hsl(233,14%,35%)]" />
+      <hr className="border border-[hsl(236,33%,92%)] dark:border-[hsl(237,14%,26%)]" />
     </>
   );
 };

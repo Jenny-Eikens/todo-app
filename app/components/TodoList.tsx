@@ -111,7 +111,7 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
     return true;
   });
 
-  localStorage.clear();
+  // localStorage.clear();
 
   return (
     <>
