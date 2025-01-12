@@ -33,8 +33,10 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
   });
 
   useEffect(() => {
-    const todoList = JSON.stringify(todos);
-    localStorage.setItem("Todos", todoList);
+    if (typeof window !== "undefined") {
+      const todoList = JSON.stringify(todos);
+      localStorage.setItem("Todos", todoList);
+    }
   }, [todos]);
 
   const generateId = () => {
