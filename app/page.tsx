@@ -4,18 +4,6 @@ import path from "path";
 import Head from "next/head";
 import TodoList from "./components/TodoList";
 
-/* TODO
-- how can I use Checkbox in InputField and disable it only there?
-- figure out how to make checkmark bigger
-- why does checkbox get squashed when todo is too wide?
-- fix styles
-- figure out how to restrict hover effect to checkbox
-- figure out how to override css rules for hovering on completed checkbox -> why does checkmark slide into view??
-
-ISSUES:
-- why does page initially show sun icon despite mode being light??
-*/
-
 export const metadata = {
   title: "Frontend Mentor | Todo App",
   icons: {

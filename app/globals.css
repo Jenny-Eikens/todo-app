@@ -41,10 +41,7 @@ body {
   transition: all 150ms;
 }
 
-.checked-checkbox:hover {
-  @apply border-none bg-gradient-with-check bg-center bg-no-repeat;
-}
-
+.checked-checkbox:hover,
 .dark .checked-checkbox:hover {
-  @apply border-none bg-gradient-with-check bg-center bg-no-repeat;
+  @apply border-none bg-gradient-with-check bg-center bg-no-repeat transition-none;
 }

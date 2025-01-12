@@ -1,4 +1,3 @@
-import daisyui from "daisyui";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -10,9 +9,6 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
-      colors: {
-        accent: "linear-gradient(to_bottom_right,#567de6,#823cd0)",
-      },
       backgroundImage: {
         "light-mobile": "url('/images/bg-mobile-light.jpg')",
         "dark-mobile": "url('/images/bg-mobile-dark.jpg')",
@@ -23,19 +19,7 @@ export default {
       },
     },
   },
-  // daisyui: {
-  //   themes: [
-  //     {
-  //       lighttheme: {
-  //         primary: "#fff",
-  //       },
-  //       darktheme: {
-  //         primary: "#aaa",
-  //       },
-  //     },
-  //   ],
-  // },
-  plugins: [daisyui],
+  plugins: [],
 } satisfies Config;
 
 /*

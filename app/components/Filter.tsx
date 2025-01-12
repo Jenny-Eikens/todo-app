@@ -19,6 +19,7 @@ const Filter = ({ onShowAll, onShowActive, onShowCompleted }: FilterProps) => {
           onShowAll();
         }}
         className={`${selectedFilter === "all" && "text-[hsl(220,80%,60%)]"} ${selectedFilter !== "all" && "filtering"}`}
+        aria-label="Filter by all"
       >
         All
       </button>
@@ -28,6 +29,7 @@ const Filter = ({ onShowAll, onShowActive, onShowCompleted }: FilterProps) => {
           onShowActive();
         }}
         className={`${selectedFilter === "active" && "text-[hsl(220,57%,50%)]"} ${selectedFilter !== "active" && "filtering"}`}
+        aria-label="Filter by active"
       >
         Active
       </button>
@@ -37,6 +39,7 @@ const Filter = ({ onShowAll, onShowActive, onShowCompleted }: FilterProps) => {
           onShowCompleted();
         }}
         className={`${selectedFilter === "completed" && "text-[hsl(220,57%,50%)]"} ${selectedFilter !== "completed" && "filtering"}`}
+        aria-label="Filter by completed     "
       >
         Completed
       </button>

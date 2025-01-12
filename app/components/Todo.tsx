@@ -39,30 +39,34 @@ const Todo = ({
     transition,
   };
 
+  const checkboxId = `toggle-complete-${id}`;
+
   return (
     <>
-      <label
+      <div
         key={id}
-        className="group flex items-center px-4"
+        className="group flex items-center px-4 hover:cursor-pointer"
         ref={setNodeRef}
         style={style}
         {...attributes}
       >
-        <Checkbox completed={completed} onChange={onToggle} />
-        <span
-          className={`${completed && "text-[hsl(233,11%,84%)] line-through dark:text-[hsl(234,11%,52%)]"} h-full w-[80%] py-4 text-sm md:w-[90%] md:text-base`}
+        <Checkbox id={checkboxId} completed={completed} onChange={onToggle} />
+        <label
+          htmlFor="toggle-complete"
+          className={`${completed && "text-[hsl(233,11%,84%)] line-through dark:text-[hsl(234,11%,52%)]"} h-full w-[80%] py-4 text-sm hover:cursor-pointer md:w-[90%] md:text-base`}
           {...listeners}
           tabIndex={0}
         >
           {content}
-        </span>
+        </label>
         <button
-          className="ml-auto scale-75 p-2 transition-all duration-150 md:opacity-0 md:group-hover:opacity-100"
+          className="ml-auto scale-75 p-2 transition-opacity md:opacity-0 md:group-hover:opacity-100"
           onClick={onDelete}
+          aria-label={`Delete ${content}`}
         >
           {iconCross}
         </button>
-      </label>
+      </div>
       <hr className="border border-[hsl(236,33%,92%)] dark:border-[hsl(237,14%,26%)]" />
     </>
   );

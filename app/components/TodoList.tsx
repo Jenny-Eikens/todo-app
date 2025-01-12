@@ -61,18 +61,6 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
     setCount(openTodos.length);
   }, [todos]);
 
-  const handleShowAll = () => {
-    setFilter("all");
-  };
-
-  const handleShowActive = () => {
-    setFilter("active");
-  };
-
-  const handleShowCompleted = () => {
-    setFilter("completed");
-  };
-
   const handleClearCompleted = () => {
     const clearedTodos = todos.filter((todo) => !todo.completed);
     setTodos(clearedTodos);
@@ -111,8 +99,6 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
     return true;
   });
 
-  // localStorage.clear();
-
   return (
     <>
       <Header />
@@ -141,16 +127,16 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
           </DndContext>
           <Footer
             count={count}
-            onShowAll={handleShowAll}
-            onShowActive={handleShowActive}
-            onShowCompleted={handleShowCompleted}
+            onShowAll={() => setFilter("all")}
+            onShowActive={() => setFilter("active")}
+            onShowCompleted={() => setFilter("completed")}
             onClearCompleted={handleClearCompleted}
           />
         </div>
         <MobileFooter
-          onShowAll={handleShowAll}
-          onShowActive={handleShowActive}
-          onShowCompleted={handleShowCompleted}
+          onShowAll={() => setFilter("all")}
+          onShowActive={() => setFilter("active")}
+          onShowCompleted={() => setFilter("completed")}
         />
       </div>
 
