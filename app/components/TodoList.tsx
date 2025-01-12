@@ -82,7 +82,6 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
 
   const handleDragEnd = (e: DragEndEvent) => {
     const { active, over } = e;
-    console.log("Drag event!");
     if (active.id !== over?.id) {
       setTodos((items) => {
         const activeIndex = items.findIndex((item) => item.id === active.id);
