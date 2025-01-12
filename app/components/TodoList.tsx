@@ -99,6 +99,8 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
     return true;
   });
 
+  localStorage.clear();
+
   return (
     <>
       <Header />
@@ -140,7 +142,7 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
         />
       </div>
 
-      <div className="flex justify-center py-[3rem] text-sm font-[500] text-[hsl(236,9%,61%)] dark:text-[hsl(234,11%,52%)]">
+      <div className="flex justify-center pt-[3rem] text-sm font-[500] text-[hsl(236,9%,61%)] dark:text-[hsl(234,11%,52%)]">
         Drag and drop to reorder list
       </div>
     </>

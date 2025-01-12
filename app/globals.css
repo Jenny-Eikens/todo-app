@@ -45,3 +45,7 @@ body {
 .dark .checked-checkbox:hover {
   @apply border-none bg-gradient-with-check bg-center bg-no-repeat transition-none;
 }
+
+footer a {
+  @apply underline;
+}

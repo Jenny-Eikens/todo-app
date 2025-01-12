@@ -53,9 +53,27 @@ const Home = async () => {
           content={`width=${viewport.width} initial-scale=${viewport.initialScale}`}
         />
       </Head>
-      <main className="m-auto min-h-full w-[90vw] max-w-[600px] py-8">
-        <TodoList initialTodos={initialTodos} />
-      </main>
+      <div>
+        <main className="m-auto min-h-[90vh] w-[90vw] max-w-[600px] py-8">
+          <TodoList initialTodos={initialTodos} />
+        </main>
+        <footer className="bottom-1 mt-6 p-2 text-center text-sm md:bottom-0 md:p-0">
+          <div>
+            Challenge by{" "}
+            <a
+              href="https://www.frontendmentor.io?ref=challenge"
+              target="_blank"
+            >
+              Frontend Mentor
+            </a>
+            . Coded by{" "}
+            <a href="https://github.com/Jenny-Eikens" target="_blank">
+              Jennifer Eikens
+            </a>
+            .
+          </div>
+        </footer>
+      </div>
     </>
   );
 };
