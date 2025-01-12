@@ -19,8 +19,14 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
 
   const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
 
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const getStoredTodos = (): TodoProps[] | null => {
-    if (!typeof window !== undefined) {
+    if (isClient) {
       const storedTodos = localStorage.getItem("Todos");
       return storedTodos ? JSON.parse(storedTodos) : null;
     }
@@ -33,11 +39,11 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
   });
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (isClient) {
       const todoList = JSON.stringify(todos);
       localStorage.setItem("Todos", todoList);
     }
-  }, [todos]);
+  }, [todos, isClient]);
 
   const generateId = () => {
     return Math.random() + Date.now();
