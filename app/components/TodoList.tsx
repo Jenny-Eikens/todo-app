@@ -98,8 +98,6 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
     return true;
   });
 
-  localStorage.clear();
-
   return (
     <>
       <Header />
