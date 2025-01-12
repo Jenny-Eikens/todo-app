@@ -47,5 +47,5 @@ body {
 }
 
 footer a {
-  @apply underline;
+  @apply text-[hsl(220,80%,60%)] underline;
 }
