@@ -30,6 +30,7 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
 
   const [isClient, setIsClient] = useState(false);
 
+  /* used to check if localStorage is available, runs on mount */
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -43,20 +44,42 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
   };
 
   const [todos, setTodos] = useState(() => {
-    const storedTodos = getStoredTodos();
-    return storedTodos ? storedTodos : initialTodos;
+    return initialTodos;
   });
 
+  /* once mounted, todos are updated using data stored in localStorage */
+  useEffect(() => {
+    if (isClient) {
+      const storedTodos = getStoredTodos();
+      if (storedTodos) {
+        setTodos(storedTodos);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isClient]);
+
+  /* localStorage updates everytime todos change,
+  counter variable updates everytime checkbox is toggled */
   useEffect(() => {
     if (isClient) {
       const todoList = JSON.stringify(todos);
       localStorage.setItem("Todos", todoList);
     }
-  }, [todos, isClient]);
+
+    const openTodos = todos.filter((todo) => !todo.completed);
+    setCount(openTodos.length);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [todos]);
 
   const generateId = () => {
     return Math.random() + Date.now();
   };
+
+  const filteredTodos = todos.filter((todo) => {
+    if (filter === "active") return !todo.completed;
+    if (filter === "completed") return todo.completed;
+    return true;
+  });
 
   const handleToggle = (id: number) => {
     setTodos((prevTodos) =>
@@ -72,11 +95,6 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
   const handleDelete = (id: number) => {
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
   };
-
-  useEffect(() => {
-    const openTodos = todos.filter((todo) => !todo.completed);
-    setCount(openTodos.length);
-  }, [todos]);
 
   const handleClearCompleted = () => {
     const clearedTodos = todos.filter((todo) => !todo.completed);
@@ -120,12 +138,6 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
       });
     }
   };
-
-  const filteredTodos = todos.filter((todo) => {
-    if (filter === "active") return !todo.completed;
-    if (filter === "completed") return todo.completed;
-    return true;
-  });
 
   return (
     <>
