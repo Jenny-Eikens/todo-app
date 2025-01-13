@@ -18,19 +18,13 @@ function ThemeToggle() {
     return null;
   }
 
-  const currentTheme =
-    theme === "system"
-      ? window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light"
-      : theme;
-
-  const icon = currentTheme === "light" ? iconMoon : iconSun;
+  const isDark = theme === "dark";
+  const icon = isDark ? iconSun : iconMoon;
 
   return (
     <button
       className="scale-[0.85] p-2 md:scale-100"
-      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label="Toggle theme"
     >
       {icon}
