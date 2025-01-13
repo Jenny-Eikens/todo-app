@@ -7,7 +7,16 @@ import InputField from "./InputField";
 import Footer from "./Footer";
 import MobileFooter from "./MobileFooter";
 import { TodoProps } from "./Todo";
-import { DndContext, closestCenter, DragEndEvent } from "@dnd-kit/core";
+import {
+  DndContext,
+  closestCenter,
+  DragEndEvent,
+  MouseSensor,
+  TouchSensor,
+  KeyboardSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
 import {
   arrayMove,
   SortableContext,
@@ -88,6 +97,18 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
     addTodo(text);
   };
 
+  const touchSensor = useSensor(TouchSensor, {
+    // Press delay of 250ms, with tolerance of 5px of movement
+    activationConstraint: {
+      delay: 250,
+      tolerance: 5,
+    },
+  });
+  const mouseSensor = useSensor(MouseSensor);
+  const keyboardSensor = useSensor(KeyboardSensor);
+
+  const sensors = useSensors(touchSensor, mouseSensor, keyboardSensor);
+
   const handleDragEnd = (e: DragEndEvent) => {
     const { active, over } = e;
     if (active.id !== over?.id) {
@@ -113,6 +134,7 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
         <InputField onAddTodo={handleAddTodo} />
         <div className="space-y-2 rounded-lg bg-white py-2 text-[hsl(235,19%,35%)] shadow-md dark:bg-[hsl(235,24%,19%)] dark:text-[hsl(234,39%,85%)]">
           <DndContext
+            sensors={sensors}
             collisionDetection={closestCenter}
             onDragEnd={handleDragEnd}
           >
