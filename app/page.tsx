@@ -7,7 +7,7 @@ import TodoList from "./components/TodoList";
 export const metadata = {
   title: "Frontend Mentor | Todo App",
   icons: {
-    icon: "/favicon-32x32px.png",
+    icon: "/favicon-32x32.png",
   },
   description: "Todo app built with Next",
 };
