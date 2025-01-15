@@ -21,13 +21,7 @@ const InputField = ({ onAddTodo }: InputFieldProps) => {
       <label htmlFor="new-todo" className="sr-only">
         Add a new todo
       </label>
-      <input
-        type="checkbox"
-        name="add-todo"
-        id="add-todo"
-        className="mr-3 h-6 w-6 appearance-none rounded-full border border-[hsl(236,33%,92%)] dark:border-[hsl(233,14%,35%)] md:h-7 md:w-7"
-        disabled
-      />
+      <span className="mr-3 h-6 w-6 appearance-none rounded-full border border-[hsl(236,33%,92%)] dark:border-[hsl(233,14%,35%)] md:h-7 md:w-7"></span>
       <textarea
         name="new-todo"
         id="new-todo"
