@@ -49,7 +49,7 @@ const Todo = ({
         ref={setNodeRef}
         style={style}
         {...attributes}
-        role={undefined}
+        role="listitem"
       >
         <Checkbox id={checkboxId} completed={completed} onChange={onToggle} />
         <label
