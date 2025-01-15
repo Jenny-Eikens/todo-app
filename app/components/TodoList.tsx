@@ -144,7 +144,10 @@ const TodoList = ({ initialTodos }: { initialTodos: TodoProps[] }) => {
       <Header />
       <div className="mt-6 space-y-4 md:mt-10">
         <InputField onAddTodo={handleAddTodo} />
-        <div className="space-y-2 rounded-lg bg-white py-2 text-[hsl(235,19%,35%)] shadow-md dark:bg-[hsl(235,24%,19%)] dark:text-[hsl(234,39%,85%)]">
+        <div
+          className="space-y-2 rounded-lg bg-white py-2 text-[hsl(235,19%,35%)] shadow-md dark:bg-[hsl(235,24%,19%)] dark:text-[hsl(234,39%,85%)]"
+          role="list"
+        >
           <DndContext
             sensors={sensors}
             collisionDetection={closestCenter}
